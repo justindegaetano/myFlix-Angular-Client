@@ -23,12 +23,7 @@ export class MovieCardComponent {
     this.getFavorites();
   }
 
-  /**
-   * Fetch movies via API
-   * @returns
-   * @function getMovies
-   */
-
+  // Fetch movies via API
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -37,12 +32,7 @@ export class MovieCardComponent {
     });
   }
 
-  /**
-   * Fetch user info via API and set favorites state
-   * @returns 
-   * @function getFavorites
-   */
-
+  // Fetch user info via API and set favorites state
   getFavorites(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favorites = resp.FavoriteMovies;
@@ -51,23 +41,12 @@ export class MovieCardComponent {
     });
   }
 
-  /**
-   * Checks if movie is included in user's favorite movies
-   * @param {string} id
-   * @returns
-   * @function isFavorite
-   */
-
+  // Checks if movie is included in user's favorite movies
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
   }
 
-  /**
-   * Adds movie to user's favorites
-   * @param {string} id
-   * @function addToFavorites
-   */
-
+  // Adds movie to user's favorites
   addToFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
@@ -79,12 +58,7 @@ export class MovieCardComponent {
     });
   }
 
-  /**
-   * Removes movie from user's favorites
-   * @param {string} id
-   * @function removeFromFavorites
-   */
-
+  //Removes movie from user's favorites
   removeFromFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.removeFavoriteMovie(id).subscribe((result) => {
@@ -96,13 +70,7 @@ export class MovieCardComponent {
     });
   }
 
-  /**
-   * Opens movie details from MovieDetailsComponent
-   * @param {string} title
-   * @param {string} description
-   * @function openSummary
-   */
-
+  // Opens movie details from MovieDetailsComponent
   openSummary(title: string, description: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {

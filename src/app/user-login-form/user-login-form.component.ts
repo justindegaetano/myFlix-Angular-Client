@@ -31,13 +31,13 @@ export class UserLoginFormComponent implements OnInit {
         localStorage.setItem('token', token);
         console.log(user, token);
         this.dialogRef.close();
-        this.router.navigate(['movies']);
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('User login successful', 'OK', {
           duration: 2000,
         });
+        this.router.navigate(['movies']);
       },
       (result) => {
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('User login failed', 'OK', {
           duration: 2000,
         });
       }

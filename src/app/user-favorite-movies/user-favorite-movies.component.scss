@@ -20,18 +20,6 @@
   justify-content: center;
 }
 
-.mat-mdc-card-header {
-  padding: 0 .5em .25em;
-}
-
-.mat-mdc-card-header {
-  color: hsl(170, 40%, 40%)
-}
-
-.movie-card > img {
-  height: 70%;
-}
-
 .mdc-card__actions {
   display: block;
 }
@@ -66,4 +54,36 @@
   }
   
   .movie-card { width: 20vw; }
+}
+
+@media screen and (min-width: 1250px) {
+  .user-favorite-movies-view {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .movie-card { width: 17vw; }
+}
+
+@media screen and (min-width: 1500px) {
+  .user-favorite-movies-view {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .movie-card { width: 15vw; }
+}
+
+@media screen and (min-width: 1750px) {
+  .user-favorite-movies-view {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .movie-card { width: 13vw; }
+}
+
+@media screen and (min-width: 2000px) {
+  .user-favorite-movies-view {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .movie-card { width: 11vw; }
 }

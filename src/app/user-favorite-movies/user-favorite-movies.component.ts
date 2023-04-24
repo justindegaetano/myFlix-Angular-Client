@@ -23,6 +23,7 @@ export class UserFavoriteMoviesComponent implements OnInit{
     this.getFavoriteMovies();
   }
 
+  // Get current list of user favorites
   getFavoriteMovies(): void {
     this.favorites, this.favoriteMovies = [];
     this.fetchApiData.getUser().subscribe((resp: any) => {

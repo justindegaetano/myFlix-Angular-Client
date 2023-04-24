@@ -23,19 +23,14 @@ export class UserProfileComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserProfileComponent>,
     public snackBar: MatSnackBar,
-    public router: Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getUserInfo();
   }
 
-  /**
-   * Fetch user data
-   * @returns
-   * @function getUserInfo
-   */
-
+  // Fetch user data
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -48,11 +43,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  /**
-   * Update user data
-   * @function updateUserInfo
-   */
-
+  // Update user data
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
       console.log(result);
@@ -73,11 +64,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  /**
-   * Delete user data
-   * @function deleteAccount
-   */
-
+  //Delete user data
   deleteAccount(): void {
     if (confirm('All your data will be lost - this cannnot be undone!')) {
       this.router.navigate(['welcome']).then(() => {

@@ -1,6 +1,6 @@
-<app-navbar />
-<div class="movie-view">
-  <mat-card *ngFor="let movie of movies" class="movie-card">
+<h2 class="user-favorite-movies__title">Favorite Movies</h2>
+<div class="user-favorite-movies-view">
+  <mat-card *ngFor="let movie of favoriteMovies" class="movie-card">
     <mat-card-header>
       <mat-card-title>
         <h2>{{ movie.Title }}</h2>

@@ -39,35 +39,11 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  // Get JSON movie info when searching specific title
-  getMovie(title: string): Observable<any> {
+  // Get JSON movie info when searching movie ID
+  getMovie(_id: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}/movies/${title}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  // Read specific director bio
-  getDirector(directorName: string): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http
-      .get(`${apiUrl}/directors/${directorName}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  // Read specific genre description
-  getGenre(genreName: string): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http
-      .get(`${apiUrl}/genres/${genreName}`, {
+      .get(`${apiUrl}/movies/${_id}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -88,7 +64,7 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  // get an array of a user's favorite movies by username
+  // Get an array of a user's favorite movies by username
   getFavoriteMovies(): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -110,7 +86,7 @@ export class FetchApiDataService {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     return this.http
-      .put(
+      .post(
         `${apiUrl}/users/${username}/movies/${movieId}`,
         { FavoriteMovie: movieId },
         {

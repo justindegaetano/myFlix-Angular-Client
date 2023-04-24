@@ -22,6 +22,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserFavoriteMoviesComponent } from './user-favorite-movies/user-favorite-movies.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     MovieDetailsComponent,
     UserProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserFavoriteMoviesComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-user-profile',
@@ -37,7 +38,7 @@ export class UserProfileComponent implements OnInit {
       console.log(this.user);
       this.updatedUser.Username = this.user.Username;
       this.updatedUser.Email = this.user.Email;
-      this.updatedUser.Birthday = this.user.Birthday;
+      this.updatedUser.Birthday = formatDate(this.user.Birthday, 'yyyy-MM-dd', 'en-US', 'UTC+0');
       console.log(this.updatedUser);
       return this.user;
     });
@@ -50,7 +51,7 @@ export class UserProfileComponent implements OnInit {
       this.snackBar.open('User profile successfully updated', 'OK', {
         duration: 2000,
       });
-      if (this.user.Username !== result.Username) {
+      if (this.user.Username !== result.Username || this.user.Password !== result.Password) {
         localStorage.clear();
         this.router.navigate(['welcome']);
         this.snackBar.open(

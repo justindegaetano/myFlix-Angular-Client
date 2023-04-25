@@ -9,16 +9,27 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.scss'],
 })
+
+/**
+ * The WelcomePageComponent is the default view if the user is not logged in.
+ * It displays a welcome message, a log in button, and a register button
+ */
 export class WelcomePageComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {}
 
+  /**
+   * Open the user registration dialog modal displaying input fields for user creation
+   */
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       width: '280px',
     });
   }
 
+  /**
+   * Open the user login dialog modal displaying input fields for user login
+   */
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px',

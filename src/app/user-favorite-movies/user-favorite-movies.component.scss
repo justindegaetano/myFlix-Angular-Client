@@ -1,5 +1,4 @@
 .user-favorite-movies__title {
- 
   margin: 0;
   padding: 1.25em .5em;
 }
@@ -15,9 +14,17 @@
 
 .movie-card {
   margin-top: .35em;
+  padding: .2rem;
   width: 30vw;
   justify-self: center;
   justify-content: center;
+  box-shadow: 1px 1px 20px black;
+  border-width: .1rem;
+  border-color: grey;
+}
+
+.movie-card-header {
+  color: hsl(0, 81%, 34%)
 }
 
 .mdc-card__actions {

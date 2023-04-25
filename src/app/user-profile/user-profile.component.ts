@@ -10,6 +10,14 @@ import { formatDate } from '@angular/common';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
+
+/**
+ * The UserProfileComponent provides the user profile view.
+ * 
+ * Displays user info, the ability to modify user info, or
+ * delete the user's account. This is also where a user
+ * can view/edit their favorite movies.
+ */
 export class UserProfileComponent implements OnInit {
   user: any = {};
   initialInput: any = {};
@@ -31,7 +39,10 @@ export class UserProfileComponent implements OnInit {
     this.getUserInfo();
   }
 
-  // Fetch user data
+  /**
+   * Fetch the user's info with fetchApiData.getUser()
+   * @returns an object of the user's info
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -44,7 +55,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // Update user data
+  /**
+   * Update the user's info with fetchApiData.editUser()
+   */
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
       console.log(result);
@@ -65,7 +78,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  //Delete user data
+  /**
+   * Delete the user's info with fetchApiData.deleteUser()
+   */
   deleteAccount(): void {
     if (confirm('All your data will be lost - this cannnot be undone!')) {
       this.router.navigate(['welcome']).then(() => {

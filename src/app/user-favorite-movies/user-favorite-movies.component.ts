@@ -10,6 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-favorite-movies.component.scss'],
 })
 
+/**
+ * The UserFavoriteMoviesComponent class fetches and displays the
+ * user's favorite movies in card format in the user profile view
+ */
 export class UserFavoriteMoviesComponent implements OnInit{
   favorites: any[] = [];
   favoriteMovies: any[] = []; 
@@ -23,7 +27,17 @@ export class UserFavoriteMoviesComponent implements OnInit{
     this.getFavoriteMovies();
   }
 
-  // Get current list of user favorites
+  /**
+   * Called OnInit, and whenever the favorite (heart) icon is clicked.
+   * 
+   * Empties this.favorites[] and this.favoriteMovies[], an array of movie ids
+   * and an array of movie objects respectively.
+   * 
+   * Then, fetch the user's favorite movies and set this.favorites as the response.
+   * 
+   * Then, (using the map method) for each favorite (string) in this.favorites[],
+   * fetch the movie (Object) by the id and push the response into this.favoriteMovies[]
+   */
   getFavoriteMovies(): void {
     this.favorites, this.favoriteMovies = [];
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -36,12 +50,19 @@ export class UserFavoriteMoviesComponent implements OnInit{
     });
   }
 
-  // Checks if selected movie ID is already in user favorites
+  /**
+   * Check if a movie id is included in the user's favorites
+   * @param id
+   * @returns a boolean value
+   */
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
   }
 
-  // Add movie ID into the user favorites
+  /**
+   * Add one movie id into the user's favorites with FetchApiDataService.addFavoriteMovie()
+   * @param id
+   */
   addToFavorites(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
       this.snackBar.open('Movie added to favorites', 'OK', {
@@ -51,7 +72,10 @@ export class UserFavoriteMoviesComponent implements OnInit{
     });
   }
 
-  // Remove movie ID from the user favorites
+  /**
+   * Remove one movie id from the user's favorites with FetchApiDataService.removeFavoriteMovie()
+   * @param id
+   */
   removeFromFavorites(id: string): void {
     this.fetchApiData.removeFavoriteMovie(id).subscribe((result) => {
       this.snackBar.open('Movie removed from favorites', 'OK', {
@@ -61,7 +85,11 @@ export class UserFavoriteMoviesComponent implements OnInit{
     });
   }
 
-  // Open the Movie Details modal displaying the movie title and description
+  /**
+   * Open the Movie Details dialog modal displaying the movie title and description
+   * @param title
+   * @param description
+   */
   openSummary(title: string, description: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {

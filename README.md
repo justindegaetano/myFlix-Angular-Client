@@ -16,8 +16,7 @@ TypeScript, Angular, TypeDoc, Full-Stack, SCSS
 
 ## Application Link
 
-https://guyrimel.github.io/Date-Night-Movies-Angular-Client/
-
+https://justindegaetano.github.io/myFlix-Angular-Client/
 # MyFlixAngularClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.

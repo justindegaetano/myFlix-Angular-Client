@@ -21,14 +21,14 @@
     position: relative;
     padding: 0;
     color: hsl(0, 81%, 34%);
-    height: 12vh;
+    height: 11vh;
     width: 100%;
     margin: auto auto;
     text-align: left;
     h2 {
       font-size: 1.2rem;
       margin: auto auto;
-      padding: .5rem .5rem;
+      padding: 1rem .5rem;
     }
     h4 {
       margin: auto auto;
@@ -75,7 +75,7 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     
-    .movie-card { width: 20vw; }
+    .movie-card { width: 22vw; }
   }
 
   @media screen and (min-width: 1250px) {

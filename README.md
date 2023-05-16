@@ -1,3 +1,23 @@
+# myFlix-Angular-Client
+
+The client-side for an application called myFlix based on its existing server-side code (REST API and database).
+
+## Key features
+
+- The app displays a welcome view where users will be able to either log in or register an account.
+- Once authenticated, the user is logged in and will see the movies view displaying all movies.
+- A single movie card will contain the following additional features:
+  - A button that when clicked displays the director view, where details about the director of that particular movie will be displayed.
+  - A button that when clicked displays the genre view, where details about the movie's genre will be displayed.
+
+## Tech Stack
+
+TypeScript, Angular, TypeDoc, Full-Stack, SCSS
+
+## Application Link
+
+https://guyrimel.github.io/Date-Night-Movies-Angular-Client/
+
 # MyFlixAngularClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.

@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // Declaring API URL that will provide data for the client app
-const apiUrl = 'https://justin-myflixdb.herokuapp.com';
+const apiUrl = 'https://myflix-webapi.onrender.com';
 @Injectable({ providedIn: 'root' })
 
 export class FetchApiDataService {
